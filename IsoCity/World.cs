@@ -1,6 +1,8 @@
 ﻿using IsoCity.Tiles;
 using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace IsoCity
 {
@@ -17,8 +19,8 @@ namespace IsoCity
 
         public int[] ToScreenPos()
         {
-            int screenX = (x + y) * (Tile.STANDARD_WIDTH - 1 ) / 2;
-            int screenY = (y - x) * (Tile.STANDARD_HEIGHT - 1 ) / 2;
+            int screenX = (x + y) * (Tile.STANDARD_WIDTH - 1) / 2;
+            int screenY = (y - x) * (Tile.STANDARD_HEIGHT - 1) / 2;
 
             return new int[] { screenX, screenY };
         }
@@ -26,7 +28,8 @@ namespace IsoCity
 
     class World : Canvas
     {
-        private static readonly Type[] tileClasses = new Type[] { typeof(TileEmpty), typeof(TileDirt) , typeof(TileGrass), typeof(TileLawn), typeof(TileConcrete) };
+        // List of all TileInfos
+        public static List<TileInfo> tileInfos = new List<TileInfo>();
 
         /// <summary>
         /// The tiles in the 2d array should not be changed, but they can be accessed and their methods can be called
@@ -35,7 +38,18 @@ namespace IsoCity
 
         public World(WorldPosition citySize)
         {
+            if (tileInfos.Count < 1) SetupTiles();
+
             Tiles = new Tile[citySize.x, citySize.y];
+        }
+
+        public static void SetupTiles()
+        {
+            tileInfos.Add(new TileInfo("TileEmpty", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/empty.png"))));
+            tileInfos.Add(new TileInfo("TileDirt", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/dirt.png")), height: 99));
+            tileInfos.Add(new TileInfo("TileGrass", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/grass.png")), height: 99));
+            tileInfos.Add(new TileInfo("TileLawn", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/lawn.png")), height: 99));
+            tileInfos.Add(new TileInfo("TileConcrete", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/lawn.png")), height: 99));
         }
 
         /// <summary>
@@ -63,7 +77,6 @@ namespace IsoCity
 
             // Set the new tile
             Tiles[wp.x, wp.y] = tile;
-            // TODO position relative to World
             Children.Add(tile);
         }
 
@@ -78,9 +91,8 @@ namespace IsoCity
             {
                 for (var y = 0; y < Tiles.GetLength(1); y++)
                 {
-                    Type tileClass = tileClasses[r.Next(tileClasses.Length)];
-                    object[] tileParameters = new object[] { new WorldPosition(x, y) };
-                    SetTile(Activator.CreateInstance(tileClass, tileParameters) as Tile);
+                    TileInfo tileInfo = tileInfos[r.Next(tileInfos.Count)];
+                    SetTile(new Tile(tileInfo, new WorldPosition(x, y)));
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IsoCity.UI;
+using System;
 using System.Diagnostics;
 using Windows.System;
 using Windows.UI.Core;
@@ -19,6 +20,8 @@ namespace IsoCity
 
             this.world = world;
             CameraCanvas.Children.Add(world);
+
+            this.Children.Add(new Toolbar());
         }
 
         public void Window_KeyDown(CoreWindow sender, KeyEventArgs e)

@@ -2,9 +2,9 @@
     x:Class="IsoCity.Camera"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:IsoCity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:IsoCity.UI"
     mc:Ignorable="d">
 
     <!-- Background rectangle with gradient -->
