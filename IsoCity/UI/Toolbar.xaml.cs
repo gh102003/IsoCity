@@ -24,9 +24,21 @@ namespace IsoCity.UI
         {
             this.InitializeComponent();
 
-            for (var i = 0; i < Math.Min(length, World.tileInfos.Count); i++)
+            for (var i = 0; i < length; i++)
             {
-                this.Children.Add(new ToolbarItem(World.tileInfos[i]));
+                this.ColumnDefinitions.Add(new ColumnDefinition());
+
+                ToolbarItem item;
+                try
+                {
+                    item = new ToolbarItem(World.tileInfos[i]);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    item = new ToolbarItem(null);
+                }
+                this.Children.Add(item);
+                Grid.SetColumn(item, i);
             }
         }
     }

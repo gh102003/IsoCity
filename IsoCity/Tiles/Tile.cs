@@ -21,12 +21,14 @@ namespace IsoCity.Tiles
         {
             this.tileInfo = tileInfo;
             this.WorldPosition = worldPosition;
+
+            AddComponents();
         }
         
         /// <summary>
         /// Adds the texture to the tile
         /// </summary>
-        protected void AddComponents()
+        private void AddComponents()
         {
             // Create texture brush
             var textureBrush = new ImageBrush

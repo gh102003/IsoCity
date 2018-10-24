@@ -17,8 +17,11 @@ namespace IsoCity
             Camera camera = new Camera(world);
             this.Content = camera;
 
-            // Send KeyDown events to the camera
+            // Send KeyDown and mouse events to the camera
             Window.Current.CoreWindow.KeyDown += camera.Window_KeyDown;
+            Window.Current.CoreWindow.PointerMoved += camera.Window_PointerMoved;
+            Window.Current.CoreWindow.PointerPressed += camera.Window_PointerPressed;
+            Window.Current.CoreWindow.PointerReleased += camera.Window_PointerReleased;
         }
     }
 }

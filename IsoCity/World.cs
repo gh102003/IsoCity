@@ -45,11 +45,11 @@ namespace IsoCity
 
         public static void SetupTiles()
         {
-            tileInfos.Add(new TileInfo("TileEmpty", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/empty.png"))));
-            tileInfos.Add(new TileInfo("TileDirt", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/dirt.png")), height: 99));
-            tileInfos.Add(new TileInfo("TileGrass", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/grass.png")), height: 99));
-            tileInfos.Add(new TileInfo("TileLawn", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/lawn.png")), height: 99));
-            tileInfos.Add(new TileInfo("TileConcrete", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/lawn.png")), height: 99));
+            tileInfos.Add(new TileInfo("Empty", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/empty.png"))));
+            tileInfos.Add(new TileInfo("Dirt", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/dirt.png")), height: 99));
+            tileInfos.Add(new TileInfo("Grass", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/grass.png")), height: 99));
+            tileInfos.Add(new TileInfo("Lawn", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/lawn.png")), height: 99));
+            tileInfos.Add(new TileInfo("Concrete", new BitmapImage(new Uri("ms-appx:///Assets/Tiles/concrete.png")), height: 99));
         }
 
         /// <summary>

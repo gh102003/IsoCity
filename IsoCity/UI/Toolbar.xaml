@@ -1,4 +1,5 @@
 ﻿<Grid
+    MaxWidth="1600"
     x:Class="IsoCity.UI.Toolbar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,5 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
+    <Rectangle Grid.ColumnSpan="8" Fill="{ThemeResource SystemControlBaseHighAcrylicElementMediumBrush}"/>
+
 </Grid>

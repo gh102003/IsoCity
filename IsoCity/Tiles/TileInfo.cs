@@ -16,8 +16,8 @@ namespace IsoCity.Tiles
 
         public TileInfo(string name, BitmapImage textureUri, int width = Tile.STANDARD_WIDTH, int height = Tile.STANDARD_HEIGHT)
         {
-            Name = name;
-            TextureUri = textureUri;
+            this.Name = name;
+            this.TextureUri = textureUri;
             this.width = width;
             this.height = height;
         }

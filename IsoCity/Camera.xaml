@@ -7,8 +7,13 @@
     xmlns:ui="using:IsoCity.UI"
     mc:Ignorable="d">
 
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    
     <!-- Background rectangle with gradient -->
-    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Rectangle Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Rectangle.Fill>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                 <GradientStop Color="SkyBlue" Offset="0"/>
